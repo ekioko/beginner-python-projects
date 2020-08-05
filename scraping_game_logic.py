@@ -1,16 +1,5 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Jul 30 15:27:15 2020
-
-@author: emmakioko
-"""
-
-
 import pandas as pd
 from random import randint
-# import tkinter as tk
-
 
 df = pd.read_csv("quote_game.csv")
 df_bios = pd.read_csv("quote_game_authors.csv")
@@ -62,29 +51,3 @@ def start_game(row=1):
 game = choose_quote()
 start_game(game)
     
-# while guess <= 4:retu
-#     if i != author:
-#         print("Sorry,")
-        
-# window.mainloop()
-
-# # initialize GUI
-# window = tk.Tk()
-# window.title("Can you guess the quote?")
-
-# lblInst = tk.Label(window, text=chosen_row)
-# e = tk.Entry(window)
-# e.pack()
-
-# e.focus_set()
-
-# def callback():
-#     return e.get()
-
-
-
-# # add elements to grid
-# #lblInst.grid(row=0,column=0,columnspan=5)
-
-# print(chosen_row)
-# print(author)
