@@ -44,71 +44,16 @@ with open("quote_game_authors.csv", "w") as csv_file: # create new csv for bio d
 			response = requests.get(url)
 			soup = BeautifulSoup(response.text, "html.parser")
 			hints = soup.select(".author-details")[0]
-			a_tag = hints.find(class_="author-title")
+			a_tag = hints.find(class_="author-title") 
 			current_author = a_tag.get_text()
-			year_tag = soup.find(class_= "author-born-date")
+			year_tag = soup.find(class_= "author-born-date") # pull author birthday
 			year = year_tag.get_text()
-			place_tag = soup.find(class_= "author-born-location")
+			place_tag = soup.find(class_= "author-born-location") # pull author birth location
 			place = place_tag.get_text()
 			bio_hint = "This person was born " + str(year) + " " + str(place)
 			a_hints = current_author.split()
-			first_initial = a_hints[0][0]
-			last_initial = a_hints[-1][0]
+			first_initial = a_hints[0][0] # first initial
+			last_initial = a_hints[-1][0] # last initial
 			csv_writer.writerow([first_initial, last_initial, bio_hint])
 
-            # biographical data
-			#csv_writer.writerow([])
 
-
-
-
-		# first initial
-		# last initial
-		# biographical data
-
-
-
-
-# #game logic
-
-
-
-# # game play: display quote to user
-# # display number of guesses remaining
-# # if answer incorrect, provide hint
-# # first hint is biographical data (place born and date)
-# # second guess
-# # decrement guesses remaining
-# choose_quote()
-
-
-
-
-
-#################################################
-# widget code
-
-# create buttons and user input window
-
-# window = tk.Tk()
-# window.title("Quote Guessing Game")
-
-# lblInst = tk.Label(window, text = chosen_row) #DISPLAY CHOSEN QUOTE HERE
-# lblLine0 = tk.Label(window, text= "*********************************************************************")
-# lblNoGuess = tk.Label(window, text= "No of Guesses: 0")
-# lblMaxGuess = tk.Label(window, text= "Max Guess: 4")
-# lblLine1 = tk.Label(window, text= "*********************************************************************")
-# lblLogs = tk.Label(window, text="Game Logs")
-# lblLine2 = tk.Label(window, text= "*********************************************************************")
-
-
-# # append elements to grid
-# lblInst.grid(row=0, column=0, columnspan=5)
-# lblLine0.grid(row=1, column=0, columnspan=5)
-# lblNoGuess.grid(row=2, column=0, columnspan=3)
-# lblMaxGuess.grid(row=2, column=3, columnspan=2)
-# lblLine1.grid(row=3, column=0, columnspan=5)
-# lblLogs.grid(row=4, column=0, columnspan=5)  # row 4 - 8 is reserved for showing logs
-# lblLine2.grid(row=9, column=0, columnspan=5)
-
-# window.mainloop()
